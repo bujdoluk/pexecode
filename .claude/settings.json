@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(docker compose up -d 2>&1)",
+      "PowerShell(tail -5)",
+      "PowerShell(Start-Sleep -Seconds 2; docker exec pexecode-postgres-1 psql -U pexeso -d pexeso -c \"DELETE FROM games;\"; $r = Invoke-WebRequest -Uri \"http://localhost:8080\" -UseBasicParsing; $r.StatusCode)"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+# Composer
+app/vendor/
+app/composer.lock
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Docker volumes & overrides
+docker-compose.override.yml
+docker-compose.local.yml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# PHP
+*.log
+/var/
+
+# Postgres data (mounted volume is managed by Docker)
+postgres/data/

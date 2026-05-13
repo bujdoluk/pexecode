@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+  <defs>
+    <radialGradient id="rg" cx="45%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#c4c9e2"/>
+      <stop offset="55%" stop-color="#6d76aa"/>
+      <stop offset="100%" stop-color="#3a3f6e"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="40" rx="98" ry="38" fill="url(#rg)"/>
+  <text x="100" y="54"
+    font-family="Arial Black, Helvetica Neue, sans-serif"
+    font-size="44"
+    font-weight="900"
+    font-style="italic"
+    fill="white"
+    text-anchor="middle"
+    letter-spacing="-2">php</text>
+</svg>

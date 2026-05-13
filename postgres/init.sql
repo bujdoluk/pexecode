@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS games (
+    id SERIAL PRIMARY KEY,
+    session_id VARCHAR(64) NOT NULL UNIQUE,
+    board JSONB NOT NULL,
+    score INTEGER DEFAULT 0,
+    moves INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
