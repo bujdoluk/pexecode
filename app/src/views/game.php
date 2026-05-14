@@ -81,18 +81,30 @@
     align-items: center;
     justify-content: center;
     padding: 16px;
+    /*
+      Card size = min of three constraints:
+        80px          — maximum on large screens
+        width-based   — (viewport - 2×16px padding - 9×6px gaps) / 10
+        height-based  — (viewport - 68px header - 2×16px padding - 9×6px gaps) / 10
+      The height formula guarantees the grid never overflows vertically.
+    */
+    --cs: min(
+      80px,
+      calc((100vw  - 32px - 54px) / 10),
+      calc((100dvh - 68px - 32px - 54px) / 10)
+    );
   }
 
   .board {
     display: grid;
-    grid-template-columns: repeat(10, 80px);
-    grid-auto-rows: 80px;
+    grid-template-columns: repeat(10, var(--cs));
+    grid-auto-rows: var(--cs);
     gap: 6px;
   }
 
   .card {
-    width: 80px;
-    height: 80px;
+    width: var(--cs);
+    height: var(--cs);
     perspective: 600px;
     cursor: pointer;
   }
@@ -338,24 +350,17 @@
 
   .card.disabled { cursor: default; pointer-events: none; }
 
-  /* 600px – 1200px: fill available viewport space */
+  /* 600px – 1200px: tighter padding and gaps */
   @media (max-width: 1200px) {
     .board-wrapper {
       padding: 10px;
-      /* --cs = min(width-based size, height-based size)
-         width:  (100vw - 2×10px padding - 9×5px gaps) / 10
-         height: (100dvh - ~68px header - 2×10px padding - 9×5px gaps) / 10 */
       --cs: min(
+        80px,
         calc((100vw  - 20px - 45px) / 10),
         calc((100dvh - 68px - 20px - 45px) / 10)
       );
     }
-    .board {
-      grid-template-columns: repeat(10, var(--cs));
-      grid-auto-rows: var(--cs);
-      gap: 5px;
-    }
-    .card { width: var(--cs); height: var(--cs); }
+    .board  { gap: 5px; }
     .card-name { font-size: 0.58rem; }
   }
 
